@@ -40,6 +40,7 @@ public class Cuenta {
     public String toString() {
         return "\n---Contrato de apertura de Cuenta---"+
                 "\nNum. Cuenta: "+numeroCuenta+
+                "\nSaldo: "+saldo+
                 "\nTipo de Cuenta: "+tipoCuenta+
                 "\nFecha de Apertura: "+fechaApertura;
     }

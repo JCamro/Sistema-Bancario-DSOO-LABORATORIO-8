@@ -9,24 +9,37 @@ import ClasesBase.Titularidad;
 
 public class GestorTitularidades {
 
-	private ArrayList<Titularidad> listaTitularidades;
-
+    private ArrayList<Titularidad> listaTitularidades;
     private GestorCuentas gCuentas;
     private GestorClientes gClientes;
     private int contadorIds = 1;
 
-	public GestorTitularidades(GestorCuentas gCuentas, GestorClientes gClientes) {
+    // Constructor sin parámetros
+    public GestorTitularidades() {
+        this.listaTitularidades = new ArrayList<>();
+    }
+
+    // Setters para inyectar las dependencias
+    public void setGestorCuentas(GestorCuentas gCuentas) {
         this.gCuentas = gCuentas;
+    }
+    public void setGestorClientes(GestorClientes gClientes) {
         this.gClientes = gClientes;
-		this.listaTitularidades = new ArrayList<>();
-	}
-
-
+    }
     
+
+
+
+
+
     // -- AGREGAR TITULAR A CUENTA --
 
 	public void agregarTitularidad(String dni, String numeroCuenta) {
-		int dniCliente = validarStringNumericoInt(dni);
+		System.out.println("\n════════════════════════════════════");
+        System.out.println("           AGREGAR TITULAR          ");
+        System.out.println("════════════════════════════════════");
+        
+        int dniCliente = validarStringNumericoInt(dni);
 		int numeroCuentaCl = validarStringNumericoInt(numeroCuenta);
         
         //Validaciones
@@ -66,30 +79,20 @@ public class GestorTitularidades {
         contadorIds++;
     }
 
-    // Devuelve un objeto titularidad si lo encuentra
-	public Titularidad buscarTitularidad(int id) {
-		for (Titularidad titularidad : listaTitularidades) {
-			if (titularidad.getIdTitularidad() == id) {
-				return titularidad;
-			}
-		}
-		return null;
-	}
-
-
-    //Elimina una titularidad del registro
-	public boolean eliminarTitularidadPorId(int id) {
-		Titularidad titularidad = buscarTitularidad(id);
-		if (titularidad != null) {
-			listaTitularidades.remove(titularidad);
-			return true;
-		}
-		return false;
-	}
-
+    // Elimina una titularidad del registro
     public void eliminarTitularidad(Titularidad titularidad) {listaTitularidades.remove(titularidad);}
 
 
+
+    public void eliminarTitularSecundario() {
+
+    }
+
+
+
+
+
+    // Busca si hay una titularidad entre un cliente y una cuenta
     public Titularidad buscarTitularidad(Cliente cliente, Cuenta cuenta) {
         for (Titularidad titular : listaTitularidades) {
             if (titular.getCliente()==cliente && titular.getCuenta()==cuenta) {
@@ -99,8 +102,11 @@ public class GestorTitularidades {
         return null;
     }
 
-    // Enlista las titularidades de un Cliente
-	public ArrayList<Titularidad> listarTitularidadesCliente(Cliente cliente) {
+
+
+    // Array de las titularidades de un Cliente
+	public ArrayList<Titularidad> listarTitularidadesDeCliente(Cliente cliente) {
+        
         ArrayList<Titularidad> titularidadesCliente = new ArrayList<>();
         for (Titularidad titularidad : listaTitularidades) {
             if (titularidad.getCliente()==cliente) {
@@ -110,11 +116,13 @@ public class GestorTitularidades {
         return titularidadesCliente;
 	}
 
-    // Enlista las titularidades de una cuenta
-    public ArrayList<Titularidad> listarTitularidadesCuenta(Cuenta cuenta) {
+
+
+    // Array de los titulares de una cuenta
+    public ArrayList<Titularidad> listarTitularesDeCuenta(Cuenta cuenta) {
 
         ArrayList<Titularidad> titularidadesCuenta = new ArrayList<>();
-        for (Titularidad titularidad : titularidadesCuenta) {
+        for (Titularidad titularidad : listaTitularidades) {
             if (titularidad.getCuenta()==cuenta) {
                 titularidadesCuenta.add(titularidad);
             }

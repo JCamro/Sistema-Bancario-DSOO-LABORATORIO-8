@@ -3,7 +3,7 @@ package ClasesBase;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-abstract class Transaccion {
+public abstract class Transaccion {
     protected double monto;
     protected Cuenta cuenta;
     protected LocalDateTime fecha;
@@ -78,7 +78,7 @@ abstract class Transaccion {
 
     @Override
     public String toString() {
-        return "\nTransaccion nro: "+
+        return "\nTransaccion nro: "+idTransaccion+
                "\nMonto:" + monto + 
                "\nCuenta" + cuenta.getNumeroCuenta() +
                "\nFecha" + getFechaFormateada() +

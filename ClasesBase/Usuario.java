@@ -2,7 +2,7 @@ package ClasesBase;
 
 import java.time.LocalDateTime;
 
-abstract class Usuario {
+public abstract class Usuario {
     protected String nombres;
     protected int dni;
     protected int edad;
