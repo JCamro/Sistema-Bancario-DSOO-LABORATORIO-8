@@ -115,7 +115,7 @@ public class Main {
         while (continuar) {
             cliente.mostrarPermisos();
             System.out.print("\nSeleccione una opción: ");
-            String opcion = scanner.nextLine().toUpperCase();
+            String opcion = scanner.nextLine();
             
             switch (opcion.toUpperCase()) {
                 case "1":

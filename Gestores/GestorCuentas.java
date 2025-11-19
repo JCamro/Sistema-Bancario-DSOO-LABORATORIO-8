@@ -40,8 +40,8 @@ public class GestorCuentas {
         Cliente cliente = gClientes.buscarCliente(dniCliente);
 
         if (cliente==null) {
-            System.out.println("\nERROR CREACION DE CUENTA: Usuario no encontrado ")
-            ;return;
+            System.out.println("\nERROR CREACION DE CUENTA: Usuario no encontrado ");
+            return;
         }
         if (!validarStringNoVacio(tipo)) {
             System.out.println("\nERROR CREACION DE CUENTA: Tipo de cuenta no debe estar vacio ");

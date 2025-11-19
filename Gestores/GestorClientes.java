@@ -17,7 +17,10 @@ public class GestorClientes {
         System.out.println("         REGISTRO DE CLIENTE        ");
         System.out.println("════════════════════════════════════");
         
-        if (!validarStringNoVacio(nombres)) {System.out.println("\nERROR AL REGISTRAR CLIENTE: Nombres no deben estar vacios"); return;}
+        if (!validarStringNoVacio(nombres)) {
+            System.out.println("\nERROR AL REGISTRAR CLIENTE: Nombres no deben estar vacios"); 
+            return;
+        }
         
         int dniCliente = validarStringNumericoInt(dni);
         int edadCliente = validarStringNumericoInt(edad);

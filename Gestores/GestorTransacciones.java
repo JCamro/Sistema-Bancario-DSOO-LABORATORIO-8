@@ -329,14 +329,26 @@ public class GestorTransacciones {
         System.out.println("        MOVIMIENTOS DE CUENTA       ");
         System.out.println("════════════════════════════════════");
 
-        if (numCuenta == -1) {System.out.println("\nERROR: Número de cuenta inválido");return;}
-        if (dniCl == -1) {System.out.println("\nERROR: DNI inválido");return;}
+        if (numCuenta == -1) {
+            System.out.println("\nERROR: Número de cuenta inválido");
+            return;
+        }
+        if (dniCl == -1) {
+            System.out.println("\nERROR: DNI inválido");
+            return;
+        }
 
         Cuenta cuenta = gCuentas.buscarCuenta(numCuenta);
         Cliente cliente = gClientes.buscarCliente(dniCl);
 
-        if (cuenta == null) {System.out.println("\nERROR: Cuenta no encontrada");return;}
-        if (cliente == null) {System.out.println("\nERROR: Cliente no encontrado");return;}
+        if (cuenta == null) {
+            System.out.println("\nERROR: Cuenta no encontrada");
+            return;
+        }
+        if (cliente == null) {
+            System.out.println("\nERROR: Cliente no encontrado");
+            return;
+        }
 
         // Validar permisos
         if (usuarioActual instanceof Cliente) {
@@ -349,7 +361,10 @@ public class GestorTransacciones {
 
         // Validar titularidad
         Titularidad titularidad = gTitularidades.buscarTitularidad(cliente, cuenta);
-        if (titularidad == null) {System.out.println("\nERROR: El cliente no es titular de esta cuenta");return;}
+        if (titularidad == null) {
+            System.out.println("\nERROR: El cliente no es titular de esta cuenta");
+            return;
+        }
 
         // Mostrar movimientos
         System.out.println("\n╔════════════════════════════════════════╗");
@@ -376,11 +391,17 @@ public class GestorTransacciones {
         System.out.println("        MOVIMIENTOS DE CLIENTE      ");
         System.out.println("════════════════════════════════════");
 
-        if(dni==-1) {System.out.println("\nERROR MOSTRAR MOVIMIENTOS CLIENTE: Dni no valido");}
+        if(dni==-1) {
+            System.out.println("\nERROR MOSTRAR MOVIMIENTOS CLIENTE: Dni no valido");
+            return;
+        }
 
         Cliente clienteL = gClientes.buscarCliente(dni);
 
-        if (clienteL==null) {System.out.println("\nERROR MOSTRAR MOVIMIENTOS CLIENTE: Cliente no existe");}
+        if (clienteL==null) {
+            System.out.println("\nERROR MOSTRAR MOVIMIENTOS CLIENTE: Cliente no existe");
+            return;
+        }
 
         if (usuarioActual instanceof Cliente) {
             if (usuarioActual.getDni() != clienteL.getDni()) {
@@ -422,7 +443,8 @@ public class GestorTransacciones {
 
         if (listaTransacciones.isEmpty()) {
             System.out.println("No hay transacciones registradas en el sistema");
-        } else {
+        } 
+        else {
             for (Transaccion transaccion : listaTransacciones) {
                 System.out.println("\n" + transaccion);
                 System.out.println("-".repeat(50));
