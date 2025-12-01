@@ -18,11 +18,6 @@ public class GestorTransacciones {
         this.contadorIdTransaccion = 1;
     }
 
-
-
-
-
-
     // -- METODO DEPOSITAR --
     public void procesarDeposito(Usuario usuarioActual, String numeroCuenta, String monto, String dniCliente, String claveCuenta) {
         // Validar permisos básicos
@@ -112,11 +107,6 @@ public class GestorTransacciones {
         System.out.println("\nDEPOSITO EXITOSO");
         System.out.println(deposito);
     }
-
-
-
-
-
 
 
     public void procesarRetiro(Usuario usuarioActual, String numeroCuenta, String monto, String dniCliente, String claveCuenta) {
@@ -212,7 +202,7 @@ public class GestorTransacciones {
         listaTransacciones.add(retiro);
         contadorIdTransaccion++;
 
-        System.out.println("\n✓ RETIRO EXITOSO");
+        System.out.println("\n¡¡RETIRO EXITOSO!!");
         System.out.println(retiro);
     }
 
@@ -220,8 +210,6 @@ public class GestorTransacciones {
 
 
     // -- METODO TRANSFERENCIA -- (Empleado y Admin tienen acceso)
-
-    
     
     public void procesarTransferencia(Empleado usuarioActual, String numeroCuentaOrigen, String numeroCuentaDestino, String monto, String dniCliente, String claveCuenta) {
         
@@ -313,10 +301,6 @@ public class GestorTransacciones {
         System.out.println("Saldo cuenta origen: S/" + cuentaOrigen.getSaldo());
         System.out.println("Saldo cuenta destino: S/" + cuentaDestino.getSaldo());
     }
-
-
-
-
 
 
     // ========== CONSULTAR MOVIMIENTOS ==========
@@ -412,8 +396,6 @@ public class GestorTransacciones {
 
         listarMovimientosCliente(clienteL);
     }
-
-
 
     public void listarMovimientosCliente(Cliente cliente) {
 
